@@ -1,12 +1,67 @@
-<div *ngIf="info.token; else loggedOut">
-  <h5 class="text-primary">Your Information</h5>
-  <p>
-    <strong>Username:</strong> {{info.username}}<br/>
-    <strong>Roles:</strong> {{info.authorities}}<br/>
-  </p>
-  <button class="btn btn-secondary" (click)="logout()">Logout</button>
-</div>
+<!--<div *ngIf="info.token; else loggedOut">-->
+<!--  <h5 class="text-primary">Your Information</h5>-->
+<!--  <p>-->
+<!--    <strong>Username:</strong> {{info.username}}<br/>-->
+<!--    <strong>Roles:</strong> {{info.authorities}}<br/>-->
+<!--  </p>-->
+<!--  <button class="btn btn-secondary" (click)="logout()">Logout</button>-->
+<!--</div>-->
+<!-- Button trigger modal -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="nav-link " routerLink="home">Home</a>
+    </div>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <app-user></app-user>
 
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+
+      <li *ngIf="authority === 'pm'" class="nav-item">
+        <a class="nav-link" routerLink="pm">PM Board</a>
+      </li>
+
+      <li *ngIf="!authority" class="nav-item">
+        <!--Login-->
+        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Đăng nhập</a>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <app-login></app-login>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li *ngIf="!authority" class="nav-item">
+        <!--register-->
+        <a href="#" data-toggle="modal" data-target="#exampleModal">Đăng ký</a>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <app-register></app-register>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
