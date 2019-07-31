@@ -4,7 +4,8 @@
       <a class="nav-link " routerLink="home">Home</a>
     </div>
     <ul class="nav navbar-nav" routerLinkActive="active">
-      <app-user></app-user>
+      <li *ngIf="authority"><app-user></app-user></li>
+
 
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>
@@ -33,7 +34,6 @@
           </div>
         </div>
       </li>
-
       <li *ngIf="!authority" class="nav-item">
         <!--register-->
         <a href="#" data-toggle="modal" data-target="#exampleModal">Đăng ký</a>
