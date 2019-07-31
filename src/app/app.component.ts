@@ -9,6 +9,7 @@ import {TokenStorageService} from './auth/token-storage.service';
 export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
+  info: any;
 
   constructor(private tokenStorage: TokenStorageService) {
   }
@@ -28,5 +29,10 @@ export class AppComponent implements OnInit {
         return true;
       });
     }
+    this.info = {
+      token: this.tokenStorage.getToken(),
+      username: this.tokenStorage.getUsername(),
+      authorities: this.tokenStorage.getAuthorities()
+    };
   }
 }
