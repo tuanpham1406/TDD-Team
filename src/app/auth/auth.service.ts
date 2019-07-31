@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {JwtResponse} from './jwt-response';
 import {AuthLoginInfo} from './login-info';
 import {SignUpInfo} from './sigup-info';
+import {UpdateInfo} from './update-info';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -30,7 +31,7 @@ export class AuthService {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
 
-  updateProfile(info: FormData): Observable<JwtResponse> {
+  updateProfile(info: UpdateInfo): Observable<JwtResponse> {
     return this.http.put<JwtResponse>(this.updateProlife, info);
   }
 }
