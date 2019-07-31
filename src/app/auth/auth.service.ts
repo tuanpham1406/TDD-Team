@@ -17,6 +17,7 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:8080/api/auth/signin';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
+  private updateProlife = 'http://localhost:8080/api/auth/updateuser';
 
   constructor(private http: HttpClient) {
   }
@@ -27,5 +28,9 @@ export class AuthService {
 
   signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
+  }
+
+  updateProfile(info: FormData): Observable<JwtResponse> {
+    return this.http.put<JwtResponse>(this.updateProlife, info);
   }
 }

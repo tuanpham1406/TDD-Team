@@ -7,37 +7,17 @@ import {HomeComponent} from './home/home.component';
 import {UserComponent} from './user/user.component';
 import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
+import {UpdateInfoComponent} from './update-info/update-info.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'user',
-    component: UserComponent
-  },
-  {
-    path: 'pm',
-    component: PmComponent
-  },
-  {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
-    path: 'auth/login',
-    component: LoginComponent
-  },
-  {
-    path: 'signup',
-    component: RegisterComponent
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  }
+  {path: 'home', component: HomeComponent},
+  {path: 'user', component: UserComponent},
+  {path: 'pm', component: PmComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'auth/login', component: LoginComponent},
+  {path: 'signup', component: RegisterComponent},
+  {path: 'update-profile', component: UpdateInfoComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
