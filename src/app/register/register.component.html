@@ -46,7 +46,7 @@
       </div>
       <div class="form-group">
         <label for="confirmPassWord">Confirm Password</label>
-        <input type="confirmPassWord" class="form-control" name="confirmPassWord" [(ngModel)]="form.confirmPassWord" #confirmPassWord="ngModel"
+        <input type="password" class="form-control" name="confirmPassWord" [(ngModel)]="form.confirmPassWord" #confirmPassWord="ngModel"
                required minlength="6"/>
         <div *ngIf="f.submitted && password.invalid">
           <div *ngIf="confirmPassWord.errors.required">Password is required</div>
