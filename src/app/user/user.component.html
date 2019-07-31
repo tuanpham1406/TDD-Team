@@ -1,11 +1,27 @@
-<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{info.username}}
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="update-profile">Update infomation</a>
-    <a class="dropdown-item" href="#">forgot password</a>
-    <div class="dropdown-divider"></div>
-    <button class="btn btn-secondary" (click)="logout()">Logout</button>
-  </div>
+<!--<div class="dropdown show">-->
+<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--     {{info.username}}-->
+<!--  </a>-->
+<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--    <a class="dropdown-item" href="update-profile">Update infomation</a>-->
+<!--    <a class="dropdown-item" href="#">forgot password</a>-->
+<!--    <div class="dropdown-divider"></div>-->
+<!--    <button class="btn btn-secondary" (click)="logout()">Logout</button>-->
+<!--  </div>-->
+<!--</div>-->
+<div id="menu">
+  <ul>
+    <li>
+      <a href="#">{{info.username}}</a>
+      <ul class="sub-menu">
+        <li><a href="update-profile">Update infomation</a></li>
+        <li><a href="#">forgot password</a></li>
+        <li><a>
+          <button class="btn btn-secondary" (click)="logout()">Logout</button>
+        </a></li>
+      </ul>
+    </li>
+  </ul>
 </div>
+
+

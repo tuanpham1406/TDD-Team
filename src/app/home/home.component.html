@@ -5,16 +5,12 @@
     </div>
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li *ngIf="authority"><app-user></app-user></li>
-
-
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>
       </li>
-
       <li *ngIf="authority === 'pm'" class="nav-item">
         <a class="nav-link" routerLink="pm">PM Board</a>
       </li>
-
       <li *ngIf="!authority" class="nav-item">
         <!--Login-->
         <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Đăng nhập</a>

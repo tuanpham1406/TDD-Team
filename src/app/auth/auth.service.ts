@@ -15,10 +15,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-
-  private loginUrl = 'http://localhost:8080/api/auth/signin';
-  private signupUrl = 'http://localhost:8080/api/auth/signup';
-  private updateProlife = 'http://localhost:8080/api/auth/updateuser';
+  BASE_URL = 'http://localhost:8080/api/';
+  private loginUrl = this.BASE_URL + 'auth/signin';
+  private signupUrl = this.BASE_URL + 'auth/signup';
+  private updateProfileUrl = this.BASE_URL + 'auth/updateuser';
 
   constructor(private http: HttpClient) {
   }
@@ -32,6 +32,6 @@ export class AuthService {
   }
 
   updateProfile(info: UpdateInfo): Observable<JwtResponse> {
-    return this.http.put<JwtResponse>(this.updateProlife, info);
+    return this.http.put<JwtResponse>(this.updateProfileUrl, info);
   }
 }
