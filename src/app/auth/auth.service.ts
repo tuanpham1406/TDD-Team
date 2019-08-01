@@ -6,6 +6,7 @@ import {JwtResponse} from './jwt-response';
 import {AuthLoginInfo} from './login-info';
 import {SignUpInfo} from './sigup-info';
 import {UpdateInfo} from './update-info';
+import {ChangePassWord} from './ChangePassWord';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -15,10 +16,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  BASE_URL = 'http://localhost:8080/api/';
-  private loginUrl = this.BASE_URL + 'auth/signin';
-  private signupUrl = this.BASE_URL + 'auth/signup';
-  private updateProfileUrl = this.BASE_URL + 'auth/updateuser';
+  BASE_URL_AUTH = 'http://localhost:8080/api/';
+  private loginUrl = this.BASE_URL_AUTH + 'auth/signin';
+  private signupUrl = this.BASE_URL_AUTH + 'auth/signup';
+  private updateProfileUrl = this.BASE_URL_AUTH + 'auth/updateuser';
+  private changePassWordUrl = this.BASE_URL_AUTH;
 
   constructor(private http: HttpClient) {
   }
@@ -33,5 +35,9 @@ export class AuthService {
 
   updateProfile(info: UpdateInfo): Observable<JwtResponse> {
     return this.http.put<JwtResponse>(this.updateProfileUrl, info);
+  }
+
+  changePassWord(info: ChangePassWord): Observable<JwtResponse> {
+    return this.http.post<JwtResponse>(this.changePassWordUrl, info, httpOptions);
   }
 }

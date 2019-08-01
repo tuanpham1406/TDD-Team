@@ -8,6 +8,7 @@ import {UserComponent} from './user/user.component';
 import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
 import {UpdateInfoComponent} from './update-info/update-info.component';
+import {ChangePassWordComponent} from './change-pass-word/change-pass-word.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'auth/login', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
   {path: 'update-profile', component: UpdateInfoComponent},
+  {path: 'change-password', component: ChangePassWordComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

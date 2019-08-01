@@ -9,10 +9,11 @@ import {HomeComponent} from './home/home.component';
 import {UserComponent} from './user/user.component';
 import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import { UpdateInfoComponent } from './update-info/update-info.component';
+import { ChangePassWordComponent } from './change-pass-word/change-pass-word.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { UpdateInfoComponent } from './update-info/update-info.component';
     UserComponent,
     PmComponent,
     AdminComponent,
-    UpdateInfoComponent
+    UpdateInfoComponent,
+    ChangePassWordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
