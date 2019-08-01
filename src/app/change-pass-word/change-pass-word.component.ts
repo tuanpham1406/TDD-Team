@@ -26,16 +26,17 @@ export class ChangePassWordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.changeForm = this.fb.group({
-      currentPassword: ['', Validators.required, Validators.minLength(6)],
-      pwGroup: this.fb.group({
-        newPassword: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
-      }, {validator: comparePassword})
-    });
+    // this.changeForm = this.fb.group({
+    //   currentPassword: ['', Validators.required, Validators.minLength(6)],
+    //   pwGroup: this.fb.group({
+    //     newPassword: ['', [Validators.required, Validators.minLength(6)]],
+    //     confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+    //   }, {validator: comparePassword})
+    // });
   }
 
   ngSubmit() {
+    debugger;
     this.changePassWord = new ChangePassWord(
       this.form.currentPassword,
       this.form.newPassword
