@@ -3,17 +3,17 @@
 </div>
 
 <ng-template #signupForm>
-  <div class="row col-sm-6" style="max-width:350px;">
+  <div class="row col-sm-6" style="max-width:500px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
-        <label for="firstName">first name</label>
+        <label for="firstName">First name</label>
         <input type="text" class="form-control" name="firstName" [(ngModel)]="form.firstName" #firstName="ngModel" required/>
         <div *ngIf="f.submitted && firstName.invalid">
           <div *ngIf="firstName.errors.required">Name is required</div>
         </div>
       </div>
       <div class="form-group">
-        <label for="lastName">last name</label>
+        <label for="lastName">Last name</label>
         <input type="text" class="form-control" name="lastName" [(ngModel)]="form.lastName" #lastName="ngModel" required/>
         <div *ngIf="f.submitted && lastName.invalid">
           <div *ngIf="lastName.errors.required">Name is required</div>

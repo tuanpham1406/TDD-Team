@@ -1,0 +1,30 @@
+<app-home></app-home>
+<form [formGroup]="changeForm" (ngSubmit)="ngSubmit()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      Current Password
+      <input type="password" class="form-control" formControlName="currentPassword">
+    </label>
+  </div>
+  <fieldset formGroupName="pwGroup">
+    <div class="form-group row">
+      <label class="col">
+        New Password
+        <input type="password" class="form-control" formControlName="newPassword">
+      </label>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Confirm Password
+        <input type="password" class="form-control" formControlName="confirmPassword">
+      </label>
+    </div>
+  </fieldset>
+  <div class="alert alert-danger" role="alert" *ngIf="changeForm.hasError('passwordnotmatch', ['pwGroup']) &&
+      changeForm.get('pwGroup').touched">
+    Password does not match!
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Submit</button>
+  </div>
+</form>
