@@ -1,9 +1,9 @@
 <div *ngIf="isSignedUp; else signupForm">
-  Your registration is successful. Please login!
+  <p class="message-signup">Your registration is successful. Please login!</p>
 </div>
 
 <ng-template #signupForm>
-  <div class="row col-sm-6" style="max-width:500px;">
+  <div class="row col-sm-6 d-flex register" style="max-width:500px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="firstName">First name</label>
