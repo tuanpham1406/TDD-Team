@@ -20,7 +20,7 @@ export class AuthService {
   private loginUrl = this.BASE_URL_AUTH + 'auth/signin';
   private signupUrl = this.BASE_URL_AUTH + 'auth/signup';
   private updateProfileUrl = this.BASE_URL_AUTH + 'auth/updateuser';
-  private changePassWordUrl = this.BASE_URL_AUTH + 'auth/changePassword';
+  private changePassWordUrl = this.BASE_URL_AUTH;
 
   constructor(private http: HttpClient) {
   }
@@ -38,7 +38,6 @@ export class AuthService {
   }
 
   changePassWord(info: ChangePassWord): Observable<JwtResponse> {
-    debugger;
     return this.http.put<JwtResponse>(this.changePassWordUrl, info, httpOptions);
   }
 }

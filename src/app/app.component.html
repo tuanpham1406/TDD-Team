@@ -1,3 +1,60 @@
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+  <!-- Main Header Start -->
+  <div class="main-header-area">
+    <div class="classy-nav-container breakpoint-off">
+      <!-- Classy Menu -->
+      <nav class="classy-navbar justify-content-between" id="pocaNav">
+        <!-- Logo -->
+        <a class="nav-brand" routerLink="home"><img src="./assets/img/core-img/logo.png" alt=""></a>
+        <!-- Navbar Toggler -->
+        <div class="classy-navbar-toggler">
+          <span class="navbarToggler"><span></span><span></span><span></span></span>
+        </div>
+        <!-- Menu -->
+        <div class="classy-menu">
+          <!-- Menu Close Button -->
+          <div class="classycloseIcon">
+            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+          </div>
+          <!-- Nav Start -->
+          <div class="classynav">
+            <ul id="nav">
+              <li class="current-item"><a routerLink="home">Home</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Podcasts</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- Top Search Area -->
+            <div class="top-search-area">
+              <form method="post">
+                <input type="search" name="top-search-bar" class="form-control"
+                       placeholder="Nhập tên bài hát hoặc ca sĩ...">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </form>
+            </div>
+            <!-- Top Social Area -->
+            <div class="nav navbar-nav">
+              <li *ngIf="authority">
+                <app-user></app-user>
+              </li>
+              <li *ngIf="!authority" class="nav-item">
+                <!--Login-->
+                <a href="auth/login">Đăng nhập</a>
+              </li>
+              <li *ngIf="!authority" class="nav-item">
+                <!--register-->
+                <a href="signup" data-toggle="modal" data-target="#exampleModal">Đăng ký</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
