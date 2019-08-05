@@ -16,18 +16,14 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
     this.userService.getUserBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+      data => {this.board = data; },
+      error => {this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`; });
     this.info = {
-      token: this.token.getToken(),
-      username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
+          token: this.token.getToken(),
+          username: this.token.getUsername(),
+          authorities: this.token.getAuthorities()
     };
   }
 

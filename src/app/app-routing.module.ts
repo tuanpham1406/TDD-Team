@@ -14,6 +14,7 @@ import {CreatSongComponent} from './component/featureSong/creat-song/creat-song.
 
 const routes: Routes = [
   {path: 'home', component: AppComponent},
+  {path: 'home/main', component: HomeComponent},
   {path: 'user', component: UserComponent},
   {path: 'pm', component: PmComponent},
   {path: 'admin', component: AdminComponent},

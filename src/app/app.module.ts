@@ -19,8 +19,12 @@ import { FooterComponent } from './component/layoutWebsite/footer/footer.compone
 import { CreatSongComponent } from './component/featureSong/creat-song/creat-song.component';
 import { UpdateSongComponent } from './component/featureSong/update-song/update-song.component';
 import { ListSongComponent } from './component/featureSong/list-song/list-song.component';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,9 @@ import { ListSongComponent } from './component/featureSong/list-song/list-song.c
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
