@@ -1,0 +1,16 @@
+<form name="form" (ngSubmit)="ngSubmit()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">Current Password
+      <input type="password" name = "currentPassword" class="form-control" [(ngModel)]= "form.currentPassword" #currentPassword = 'ngModel'>
+    </label>
+  </div>
+
+    <div class="form-group row">
+      <label class="col">New Password
+        <input type="password" name = "newPassword" class="form-control" [(ngModel)]="form.newPassword" #newPassword = 'ngModel'>
+      </label>
+    </div>
+
+
+  <div class="form-group"><button class="btn btn-info" type="submit">Submit</button></div>
+</form>

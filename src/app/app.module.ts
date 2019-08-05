@@ -3,17 +3,23 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {HomeComponent} from './home/home.component';
-import {UserComponent} from './user/user.component';
-import {PmComponent} from './pm/pm.component';
-import {AdminComponent} from './admin/admin.component';
+import {LoginComponent} from './component/userManager/auth/login/login.component';
+import {RegisterComponent} from './component/userManager/auth/register/register.component';
+import {HomeComponent} from './component/layoutWebsite/home/home.component';
+import {UserComponent} from './component/userManager/users/user/user.component';
+import {PmComponent} from './component/userManager/users/pm/pm.component';
+import {AdminComponent} from './component/userManager/users/admin/admin.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {httpInterceptorProviders} from './auth/auth-interceptor';
-import { UpdateInfoComponent } from './update-info/update-info.component';
-import { ChangePassWordComponent } from './change-pass-word/change-pass-word.component';
+import {httpInterceptorProviders} from './services/userManager/auth/auth-interceptor';
+import { UpdateInfoComponent } from './component/userManager/userFunction/update-info/update-info.component';
+import { ChangePassWordComponent } from './component/userManager/userFunction/change-pass-word/change-pass-word.component';
+import { HeaderComponent } from './component/layoutWebsite/header/header.component';
+import { FooterComponent } from './component/layoutWebsite/footer/footer.component';
+import { CreatSongComponent } from './component/featureSong/creat-song/creat-song.component';
+import { UpdateSongComponent } from './component/featureSong/update-song/update-song.component';
+import { ListSongComponent } from './component/featureSong/list-song/list-song.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,12 @@ import { ChangePassWordComponent } from './change-pass-word/change-pass-word.com
     PmComponent,
     AdminComponent,
     UpdateInfoComponent,
-    ChangePassWordComponent
+    ChangePassWordComponent,
+    HeaderComponent,
+    FooterComponent,
+    CreatSongComponent,
+    UpdateSongComponent,
+    ListSongComponent
   ],
   imports: [
     BrowserModule,
