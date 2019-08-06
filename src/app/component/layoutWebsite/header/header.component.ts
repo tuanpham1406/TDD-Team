@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../../services/userManager/token/token-storage.service';
 
 @Component({
@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
   protected authority: string;
   info: any;
 
-  constructor(private token: TokenStorageService) {}
+  constructor(private token: TokenStorageService) {
+  }
 
   ngOnInit() {
     if (this.token.getToken()) {

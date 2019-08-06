@@ -1,15 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/userManager/auth/auth.service';
 import {ChangePassWord} from '../../../../model/request/userManager/changePassWord';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
-
-function comparePassword(c: AbstractControl) {
-  const v = c.value;
-  return (v.newPassword === v.confirmPassword) ? null : {
-    passwordnotmatch: true
-  };
-}
 
 @Component({
   selector: 'app-change-pass-word',
@@ -22,16 +15,11 @@ export class ChangePassWordComponent implements OnInit {
   errorMessage = '';
   changeForm: FormGroup;
 
-  constructor(
-    private authService: AuthService,
-    private fb: FormBuilder,
-    private router: Router) {
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   ngSubmit() {
-    debugger;
     this.changePassWord = new ChangePassWord(this.form.currentPassword, this.form.newPassword);
 
     this.authService

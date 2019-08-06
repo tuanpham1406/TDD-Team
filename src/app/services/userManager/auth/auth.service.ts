@@ -18,7 +18,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:8080/api/auth/signin';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
   private updateProfileUrl = 'http://localhost:8080/api/auth/updateuser';
-  private changePassWordUrl = 'http://localhost:8080/api/auth/changepassword';
+  private changePassWordUrl = 'http://localhost:8080/api/auth/changePassword';
 
   constructor(private http: HttpClient) {
   }
