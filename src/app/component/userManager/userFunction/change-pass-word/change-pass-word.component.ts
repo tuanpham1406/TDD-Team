@@ -31,7 +31,6 @@ export class ChangePassWordComponent implements OnInit {
   ngOnInit() {}
 
   ngSubmit() {
-    debugger;
     this.changePassWord = new ChangePassWord(this.form.currentPassword, this.form.newPassword);
 
     this.authService
