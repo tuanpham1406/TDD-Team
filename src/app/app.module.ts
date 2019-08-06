@@ -10,8 +10,8 @@ import {UserComponent} from './component/userManager/users/user/user.component';
 import {PmComponent} from './component/userManager/users/pm/pm.component';
 import {AdminComponent} from './component/userManager/users/admin/admin.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {httpInterceptorProviders} from './services/userManager/auth/auth-interceptor';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor, httpInterceptorProviders} from './services/userManager/auth/auth-interceptor';
 import { UpdateInfoComponent } from './component/userManager/userFunction/update-info/update-info.component';
 import { ChangePassWordComponent } from './component/userManager/userFunction/change-pass-word/change-pass-word.component';
 import { HeaderComponent } from './component/layoutWebsite/header/header.component';
@@ -23,8 +23,6 @@ import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 
-
-// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +49,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
