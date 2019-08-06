@@ -13,7 +13,12 @@ import {AppComponent} from './app.component';
 import {CreatSongComponent} from './component/featureSong/creat-song/creat-song.component';
 
 const routes: Routes = [
-  {path: 'home', component: AppComponent},
+  {
+    path: 'home',
+    component: AppComponent,
+    children: [
+      {path: 'create-song', component: CreatSongComponent}
+    ]},
   {path: 'home/main', component: HomeComponent},
   {path: 'user', component: UserComponent},
   {path: 'pm', component: PmComponent},
@@ -22,7 +27,6 @@ const routes: Routes = [
   {path: 'auth/signup', component: RegisterComponent},
   {path: 'auth/change-password', component: ChangePassWordComponent},
   {path: 'auth/update-profile', component: UpdateInfoComponent},
-  {path: 'song/create-song', component: CreatSongComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
