@@ -70,15 +70,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadFileService {
-
+private createUrl = 'http://localhost:8080/post';
+private readUrl = 'http://localhost:8080/getallfiles';
   constructor(private http: HttpClient) { }
 
+  // getUserBoard(): Observable<string> {
+  //   return this.http.get(this.userUrl, {responseType: 'text'});
+  // }
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
 
     formdata.append('file', file);
 
-    const req = new HttpRequest('POST', '/post', formdata, {
+    const req = new HttpRequest('POST', this.createUrl, formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -87,7 +91,8 @@ export class UploadFileService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get('/getallfiles');
+    debugger;
+    return this.http.get(this.readUrl);
   }
 }
 
