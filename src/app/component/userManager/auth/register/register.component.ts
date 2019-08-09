@@ -14,33 +14,50 @@ export class RegisterComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
+  avatar: File;
+  fileList: FileList;
+  data: FormData = new FormData();
 
+  constructor(private authService: AuthService) {
+  }
 
-  constructor(private authService: AuthService) {}
+  ngOnInit() {
+  }
 
-  ngOnInit() {}
+  fileChange(event) {
+    this.fileList = event.target.files;
+    this.avatar = this.fileList[0];
+  }
 
   onSubmit() {
-    console.log(this.form);
     this.signupInfo = new SignUpInfo(
       this.form.firstName,
       this.form.lastName,
       this.form.username,
       this.form.email,
       this.form.password,
-      this.form.confirmPassWord
+      this.form.confirmPassWord,
+      this.avatar
     );
 
-    this.authService
-      .signUp(this.signupInfo)
-      .subscribe(
+    this.data = toFormData(this.signupInfo);
+    this.authService.signUp(this.data).subscribe(
       data => {
-                    console.log(data);
-                    this.isSignedUp = true;
-                    this.isSignUpFailed = false; },
+        this.isSignedUp = true;
+        this.isSignUpFailed = false;
+      },
       error => {
-                  console.log(error);
-                  this.errorMessage = error.error.message;
-                  this.isSignUpFailed = true; });
+        this.errorMessage = error.error.message;
+        this.isSignUpFailed = true;
+      });
   }
+}
+
+export function toFormData<T>(formValue: T) {
+  const formData = new FormData();
+  for (const key of Object.keys(formValue)) {
+    const value = formValue[key];
+    formData.append(key, value);
+  }
+  return formData;
 }
