@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   private roles: string[];
   protected authority: string;
   info: any;
+  avatarLink: string;
 
   constructor(private tokenStorage: TokenStorageService) {
   }
