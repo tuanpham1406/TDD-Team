@@ -7,7 +7,7 @@ import {PathAPI} from '../../pathAPI';
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'http://localhost:8080/api/user/suser';
+  private userUrl = 'http://localhost:8080/api/users/user';
   private pmUrl = 'http://localhost:8080/api/users/pm';
   private adminUrl = 'http://localhost:8080/api/users/admin';
 
