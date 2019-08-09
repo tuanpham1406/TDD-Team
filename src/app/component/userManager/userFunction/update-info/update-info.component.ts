@@ -19,6 +19,7 @@ export class UpdateInfoComponent implements OnInit {
   errorMessage = '';
   data: FormData = new FormData();
   fileList: FileList;
+  avatar: File;
 
   constructor(
     private authService: AuthService,
@@ -37,23 +38,25 @@ export class UpdateInfoComponent implements OnInit {
     this.updateInfo = new UpdateInfo(
       this.form.firstName,
       this.form.lastName,
-      this.form.email
+      this.form.email,
+      this.avatar
     );
     // this.data = toFormData(this.updateInfo);
     this.authService
       .updateProfile(this.updateInfo)
       .subscribe(
-      data => {
-                  console.log(data);
-                  this.isUpdated = true;
-                  this.isUpdateFailed = false;
-                  // this.tokenStorage.saveAvatarLink(data.avatarLink);
-                  this.router.navigate(['/home']);
-                   },
-      error => {
-                console.log(error);
-                this.errorMessage = error.error.message;
-                this.isUpdateFailed = true; });
+        data => {
+          console.log(data);
+          this.isUpdated = true;
+          this.isUpdateFailed = false;
+          this.tokenStorage.saveAvatarLink(data.avatarLink);
+          this.router.navigate(['/home']);
+        },
+        error => {
+          console.log(error);
+          this.errorMessage = error.error.message;
+          this.isUpdateFailed = true;
+        });
   }
 }
 
