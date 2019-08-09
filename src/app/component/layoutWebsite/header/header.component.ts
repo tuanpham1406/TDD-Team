@@ -35,9 +35,4 @@ export class HeaderComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
   }
-
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-  }
 }
