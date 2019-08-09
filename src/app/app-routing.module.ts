@@ -13,8 +13,8 @@ import {AppComponent} from './app.component';
 import {CreatSongComponent} from './component/featureSong/creat-song/creat-song.component';
 
 const routes: Routes = [
-  {path: 'home', component: AppComponent},
-  {path: 'home/main', component: HomeComponent},
+  {path: '', component: AppComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'user', component: UserComponent},
   {path: 'pm', component: PmComponent},
   {path: 'admin', component: AdminComponent},
