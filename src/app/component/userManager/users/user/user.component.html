@@ -1,10 +1,18 @@
 <div id="menu">
   <ul>
     <li>
-      <a href="#">{{info.username}}</a>
+      <div class="classynav">
+        <ul id="nav">
+          <li *ngIf="avatarLink"><img class="btn btn-sq-xs" src={{avatarLink}}></li>
+          <li *ngIf="!avatarLink"><img class="btn btn-sq-xs"
+                                       src="http://fleischmen.com/wp-content/uploads/2017/11/user-avatar-placeholder.png"
+                                       alt=""></li>
+          <li>{{info.username}}</li>
+        </ul>
+      </div>
       <ul class="sub-menu">
-        <li><a href="auth/update-profile">Đổi thông tin</a></li>
-        <li><a href="auth/change-password">Đổi mật khẩu</a></li>
+        <li><a routerLink="auth/update-profile">Đổi thông tin</a></li>
+        <li><a routerLink="auth/change-password">Đổi mật khẩu</a></li>
         <li><a>
           <button class="btn btn-secondary" (click)="logout()">Đăng xuất</button>
         </a></li>
