@@ -2,7 +2,7 @@
 
 <ng-template #signupForm>
   <div class="row col-sm-6 d-flex register" style="max-width:500px;">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" enctype="multipart/form-data" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="firstName">First name</label>
         <input type="text" class="form-control" name="firstName" [(ngModel)]="form.firstName" #firstName="ngModel" required/>
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">UserName</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" required/>
         <div *ngIf="f.submitted && username.invalid">
           <div *ngIf="username.errors.required">Username is required</div>
@@ -31,6 +31,11 @@
           <div *ngIf="email.errors.required">Email is required</div>
           <div *ngIf="email.errors.email">Email must be a valid email address</div>
         </div>
+      </div>
+      <div class="form-group">
+        <label for="avatar">Avatar</label>
+        <input type="file" accept="image/*" class="form-control" name="avatar" [(ngModel)]="form.avatar"
+               #avatar="ngModel" (change)="fileChange($event)">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
