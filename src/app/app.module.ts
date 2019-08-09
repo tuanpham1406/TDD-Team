@@ -22,6 +22,7 @@ import { ListSongComponent } from './component/featureSong/list-song/list-song.c
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { UploadAvatarComponent } from './component/layoutWebsite/upload-avatar/upload-avatar.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     FooterComponent,
     CreatSongComponent,
     UpdateSongComponent,
-    ListSongComponent
+    ListSongComponent,
+    UploadAvatarComponent
   ],
   imports: [
     BrowserModule,
