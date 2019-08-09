@@ -23,10 +23,9 @@
       <button class="btn btn-primary">Login</button>
       <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">Login failed: {{errorMessage}}</div>
     </div>
-
+    <hr/>
+    <p>Don't have an account ?</p><a routerLink="/auth/signup">Sign Up</a>
   </form>
-  <hr/>
-  <p>Don't have an account?</p><a href="auth/signup">Sign Up</a>
 </div>
 
 <router-outlet></router-outlet>
